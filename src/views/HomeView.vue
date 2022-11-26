@@ -2,13 +2,9 @@
   <div class="container">
     <MainPage msg="Welcome to Your Vue.js App" />
     <h1 v-if="data.length == 0">Загрузка...</h1>
-    <ul v-else >
-      <li v-for="(i,index) in data" :key="index">
-        <h3>{{i.name}}</h3>
-        <p>{{i.description}}</p>
-        <h4>{{i.price}} руб</h4>
-      </li>
-    </ul>
+    <div v-else >
+      <FoodCard v-for="(i,index) in data" :key="index" :data="i"/>
+    </div>
   </div>
 </template>
 
@@ -16,6 +12,7 @@
 import { onMounted,ref } from 'vue'
 import axios from 'axios'
 import MainPage from '@/components/MainPage.vue'
+import FoodCard from '@/components/FoodCard.vue'
 const data = ref([])
 onMounted(() => {
   console.log('dasdas');

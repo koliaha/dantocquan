@@ -11,11 +11,16 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: #2c3e50;
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .container{
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding-top: 20px;
+  padding: 20px 10px;
 }
 
 </style>
