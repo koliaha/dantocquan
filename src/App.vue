@@ -6,7 +6,7 @@
   <router-view/>
 </template>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: #2c3e50;
@@ -15,6 +15,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+a{
+    color: black;
+  &:link{
+    color: inherit;
+    text-decoration: none;
+  }
+  &:visited{
+    color: inherit;
+  }
+
 }
 .container{
   max-width: 1200px;
