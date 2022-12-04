@@ -11,13 +11,13 @@
 
 // import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import i18n from '@/localization/i18n'
+
 export default {
     setup() {
         const { t } = useI18n() // call `useI18n`, and spread `t` from  `useI18n` returning
         const setLang = (lang) =>{
-
-            console.log(this.$store);
-            console.log(lang);
+            i18n.global.locale.value = lang;
         }
         return { t,setLang } // return render context that included `t`
     }

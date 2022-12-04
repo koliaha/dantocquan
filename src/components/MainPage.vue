@@ -1,6 +1,6 @@
 <template>
     <video autoplay="autoplay" loop="loop" playsinline="" class="fade-in-video video-wrapper">
-        <source src="@/assets/bg.mp4" type="video/mp4">
+        <source src="@/assets/bg1.mp4" type="video/mp4">
     </video>
 </template>
 <script>

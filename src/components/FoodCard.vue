@@ -4,7 +4,7 @@
             <img v-lazy="{ src: `https://cafevn.ru/img/${data.url}.jpg`, loading: require('@/assets/dantoc.jpg'), error: require('@/assets/dantoc.jpg') }">
         </div>
         <div class="card-item-content">
-            <h2 class="title">{{ data.name }}</h2>
+            <h2 class="title">{{ titleName }}</h2>
             <p class="description">{{ truncate(data.description) }}</p>
             <div class="item-content-footer">
                 <router-link :to="`/food/${data.url}`">Перейти</router-link>
@@ -14,7 +14,8 @@
     </div>
 </template>
 <script>
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
+import i18n from '@/localization/i18n'
 export default {
     props: {
         data: {
@@ -22,16 +23,23 @@ export default {
             default: () => { }
         },
     },
-    setup() {
+    setup(props) {
         const descrip_length = ref(50)
         const truncate = (str) => {
             return (str.length > descrip_length.value) ? str.slice(0, descrip_length.value - 1) + '...' : str;
         }
+        
         const imageUrlAlt = (event) => {
             event.target.src = require('@/assets/dantoc.jpg')
         }
+        const titleName = computed(() =>{
+            if(i18n.global.locale.value == 'vn'){
+                return props.data.vn
+            }
+           return props.data.name
+        } )
         return {
-            truncate, imageUrlAlt,
+            truncate, imageUrlAlt,titleName
         }
     }
 }

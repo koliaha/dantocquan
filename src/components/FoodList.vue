@@ -15,10 +15,11 @@ import { onMounted, ref } from 'vue'
 import axios from 'axios'
 const data = ref([])
 onMounted(() => {
-    axios.get('https://script.google.com/macros/s/AKfycbxP2ychaEYefQ9p_V9liFboUH3Y5CiJsB_ujT5zcjSeQCz0GC6obZh7ECio0ulK2X1y/exec').then((el) => {
-        console.log(el);
-        data.value = el.data
-    })
+    if (data.value.length == 0) {
+        axios.get('https://script.google.com/macros/s/AKfycbxP2ychaEYefQ9p_V9liFboUH3Y5CiJsB_ujT5zcjSeQCz0GC6obZh7ECio0ulK2X1y/exec').then((el) => {
+            data.value = el.data
+        })
+    }
 })
 </script>
 <style lang="scss">
@@ -27,14 +28,14 @@ onMounted(() => {
     border-radius: 20px 20px 0 0;
     box-shadow: 0 0 30px rgb(206 215 224 / 25%);
     z-index: 2;
-    min-height: 35vh;
+    min-height: 100vh;
     margin: 65vh auto 0px;
     position: relative;
 }
 
 .loader {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
