@@ -4,7 +4,6 @@
         <button @click="setLang('ru')" class="lang-button">RU</button>
         <button @click="setLang('vn')" class="lang-button">VN</button>
         <button @click="setLang('en')" class="lang-button">ENG</button>
-        <p>{{ t("message.hello") }}</p>
     </div>
 </template>
 <script>
@@ -23,3 +22,22 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+    .lang-switch{
+        display: flex;
+        align-items: center;
+        button{
+            background: #ee5253;
+            outline: none;
+            cursor: pointer;
+            margin: 0 10px;
+            border: 1px solid #ee5253;
+            border-radius: 15px;
+            color: white;
+            padding: 5px 10px;
+            font-size: 18px;
+            line-height: 20px;
+
+        }
+    }
+</style>

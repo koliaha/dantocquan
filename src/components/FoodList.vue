@@ -1,42 +1,23 @@
 <template>
     <div class="container foodlist">
-        <LocalizionBtn />
-        <div class="loader" v-if="data.length == 0">
+        <div class="loader" v-if="store.getters.getItemList.length == 0">
             <LoaderCircle />
         </div>
-        <FoodCard v-for="(i, index) in data" :key="index" :data="i" />
+        <CategoryList />
+        <FoodCard v-for="(i, index) in store.getters.getItemList" :key="index" :data="i" />
+        <FooterSection/>
     </div>
 </template>
 <script setup>
 import FoodCard from '@/components/FoodCard.vue'
 import LoaderCircle from '@/components/LoaderCircle.vue'
-import LocalizionBtn from '@/components/LocalizionBtn.vue'
-import { onMounted, ref } from 'vue'
-import axios from 'axios'
-const data = ref([])
+import CategoryList from '@/components/CategoryList.vue'
+import FooterSection from '@/components/FooterSection.vue'
+import { onMounted } from 'vue'
+import store from "@/store/index";
 onMounted(() => {
-    if (data.value.length == 0) {
-        axios.get('https://script.google.com/macros/s/AKfycbxP2ychaEYefQ9p_V9liFboUH3Y5CiJsB_ujT5zcjSeQCz0GC6obZh7ECio0ulK2X1y/exec').then((el) => {
-            data.value = el.data
-        })
+    if(store.getters.getItemList.length == 0){
+        store.dispatch('GET_DATA_API')
     }
 })
 </script>
-<style lang="scss">
-.foodlist {
-    background: white;
-    border-radius: 20px 20px 0 0;
-    box-shadow: 0 0 30px rgb(206 215 224 / 25%);
-    z-index: 2;
-    min-height: 100vh;
-    margin: 65vh auto 0px;
-    position: relative;
-}
-
-.loader {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-</style>

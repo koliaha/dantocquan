@@ -6,7 +6,7 @@ import vn from './vn.json'
 const messages = { ru, en, vn }
 const i18n = createI18n({
   legacy: false, // you must set `false`, to use Composition API
-  locale: 'vn', // set locale
+  locale: 'ru', // set locale
   messages,
 })
 

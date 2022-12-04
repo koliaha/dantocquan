@@ -7,7 +7,10 @@
             <h2 class="title">{{ titleName }}</h2>
             <p class="description">{{ truncate(data.description) }}</p>
             <div class="item-content-footer">
-                <router-link :to="`/food/${data.url}`">Перейти</router-link>
+                <router-link :to="`/food/${data.id}`" class="item-content-link">
+                    <span>Перейти</span> 
+                    <img src="@/assets/arrow_black.svg" alt="arrow_left">  
+                </router-link>
                 <span class="price">{{ data.price }} ₽</span>
             </div>
         </div>
@@ -104,6 +107,14 @@ export default {
         padding: 0px 20px;
         box-shadow: 0px 4px 10px rgba(252, 213, 97, 0.5);
         background: rgb(252, 213, 97);
+    }
+}
+.item-content-link{
+    display: flex;
+    align-items: center;
+    img{
+        max-width: 10px;
+        margin-left: 10px;
     }
 }
 </style>
