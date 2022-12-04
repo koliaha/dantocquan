@@ -1,12 +1,13 @@
 <template>
     <div class="card-item">
-        <div class="card-item-image" :style="{ 'background-image': 'url(' + data.photo + ')' }">
+        <div class="card-item-image">
+            <img v-lazy="{ src: `https://cafevn.ru/img/${data.url}.jpg`, loading: require('@/assets/dantoc.jpg'), error: require('@/assets/dantoc.jpg') }">
         </div>
         <div class="card-item-content">
             <h2 class="title">{{ data.name }}</h2>
             <p class="description">{{ truncate(data.description) }}</p>
             <div class="item-content-footer">
-                <router-link :to="`/${data.id}`">Перейти</router-link>
+                <router-link :to="`/food/${data.url}`">Перейти</router-link>
                 <span class="price">{{ data.price }} ₽</span>
             </div>
         </div>
@@ -26,8 +27,11 @@ export default {
         const truncate = (str) => {
             return (str.length > descrip_length.value) ? str.slice(0, descrip_length.value - 1) + '...' : str;
         }
+        const imageUrlAlt = (event) => {
+            event.target.src = require('@/assets/dantoc.jpg')
+        }
         return {
-            truncate
+            truncate, imageUrlAlt,
         }
     }
 }
@@ -49,11 +53,15 @@ export default {
     height: 170px;
     background: rgb(211, 211, 211);
     margin-right: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
     overflow: hidden;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        height: 100%;
+    }
 }
 
 .card-item-content {
