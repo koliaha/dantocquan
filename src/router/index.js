@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import FoodView from '../views/FoodView.vue'
+const HomeView = () => import(/* webpackChunkName: "home" */ '../views/HomeView.vue')
+const FoodView = () => import(/* webpackChunkName: "food" */ '../views/FoodView.vue')
 
 const routes = [
   {

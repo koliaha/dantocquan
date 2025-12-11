@@ -1,6 +1,9 @@
 <template>
     <div class="main-wrapper">
-        <video autoplay="autoplay" loop="loop" playsinline="" class="fade-in-video video-wrapper">
+        <div class="video-placeholder soft-surface fade-in">
+            <span>Loading...</span>
+        </div>
+        <video autoplay="autoplay" loop="loop" playsinline="" class="fade-in-video video-wrapper" preload="none" muted>
             <source src="@/assets/bg1.mp4" type="video/mp4">
         </video>
         <div class="logo-wrapper">
@@ -17,6 +20,18 @@
         max-width: 40%;
         width: 100%;
     }
+}
+.video-placeholder{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    color: var(--color-muted);
+    background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.02));
+    z-index: -2;
 }
 .logo-wrapper{
     position: fixed;
