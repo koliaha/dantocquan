@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import axios from "axios";
+import itemData from "@/assets/data/items.json";
 export default createStore({
   state: {
     itemList: [],
@@ -88,14 +88,8 @@ export default createStore({
     },
   },
   actions: {
-    async GET_DATA_API({ commit }) {
-      await axios
-        .get(
-          "https://script.google.com/macros/s/AKfycbxP2ychaEYefQ9p_V9liFboUH3Y5CiJsB_ujT5zcjSeQCz0GC6obZh7ECio0ulK2X1y/exec"
-        )
-        .then((el) => {
-          commit("SET_DATA", el.data);
-        });
+    GET_DATA_API({ commit }) {
+      commit("SET_DATA", itemData);
     },
   },
   modules: {},
