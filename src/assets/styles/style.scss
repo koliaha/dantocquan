@@ -1,8 +1,11 @@
 :root {
-  --color-bg: #ffffff;
-  --color-text: #2c3e50;
+  --color-bg: #f8f9fb;
+  --color-text: #1f2a37;
   --color-accent: #ee5253;
-  --color-surface: #f7f7f7;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2f4f8;
+  --color-border: #e5e7eb;
+  --color-muted: #6b7280;
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
   --shadow-strong: 0 16px 32px rgba(0, 0, 0, 0.14);
   --radius-m: 16px;
@@ -11,15 +14,28 @@
   --transition-normal: 240ms ease;
 }
 
+:root[data-theme="dark"] {
+  --color-bg: #0f172a;
+  --color-text: #e5e7eb;
+  --color-accent: #ff7b66;
+  --color-surface: #111827;
+  --color-surface-2: #0b1222;
+  --color-border: #1f2937;
+  --color-muted: #9ca3af;
+  --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.45);
+  --shadow-strong: 0 18px 36px rgba(0, 0, 0, 0.55);
+}
+
 body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
+  transition: background var(--transition-normal), color var(--transition-normal);
 }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 * {
@@ -53,14 +69,15 @@ a {
 .mainpage {
   min-height: 100vh;
   position: relative;
+  transition: background var(--transition-normal);
 }
 
 .foodlist {
   max-width: 700px;
   width: 100%;
-  background: white;
+  background: var(--color-surface);
   border-radius: 20px 20px 0 0;
-  box-shadow: 0 0 30px rgb(206 215 224 / 25%);
+  box-shadow: 0 0 30px rgba(15, 23, 42, 0.08);
   z-index: 2;
   min-height: 100vh;
   margin: 65vh auto 0px;
@@ -77,6 +94,8 @@ a {
   top: 15px;
   right: 15px;
   z-index: 5;
+  display: flex;
+  gap: 10px;
 }
 
 .loader {
@@ -95,9 +114,10 @@ button {
 }
 
 .soft-surface {
-  background: #fff;
+  background: var(--color-surface);
   border-radius: var(--radius-m);
   box-shadow: var(--shadow-soft);
+  transition: background var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
 }
 
 .fade-in {

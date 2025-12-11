@@ -24,21 +24,21 @@ const isActive = (lang) =>{
         display: flex;
         align-items: center;
         button{
-            background: #ee5253;
+            background: var(--color-accent);
             outline: none;
             cursor: pointer;
             margin: 0 10px;
-            border: 1px solid #ee5253;
+            border: 1px solid var(--color-accent);
             border-radius: 15px;
-            color: white;
+            color: #fff;
             padding: 5px 10px;
             font-size: 18px;
             line-height: 20px;
             transition: all var(--transition-fast);
             box-shadow: 0 8px 18px rgba(238, 82, 83, 0.18);
             &.active{
-                background: white;
-                color: #ee5253;
+                background: var(--color-surface);
+                color: var(--color-accent);
                 box-shadow: 0 10px 24px rgba(238, 82, 83, 0.22);
             }
             &:hover{

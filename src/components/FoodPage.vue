@@ -37,7 +37,7 @@ const descriptionText = computed(() =>{
 .card-item-page {
     max-width: 100%;
     width: 100%;
-    background: #fff;
+    background: var(--color-surface);
     border-radius: var(--radius-l);
     padding: 14px;
     box-shadow: var(--shadow-soft);

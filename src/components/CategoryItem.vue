@@ -28,24 +28,24 @@ const setCategory = () => {
 </script>
 <style lang="scss">
 .category_item {
-    background: #00b894;
-    color: white;
-    font-weight: bold;
-    padding: 6px 10px;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 12px;
     margin-left: 6px;
     margin-bottom: 6px;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
     user-select: none;
     &:hover{
-        opacity: 0.9;
+        opacity: 0.95;
         transform: translateY(-2px);
         box-shadow: var(--shadow-soft);
     }
     &.isActive {
         background: #d63031;
-        box-shadow: 0 10px 24px rgba(214, 48, 49, 0.3);
+        box-shadow: 0 12px 28px rgba(214, 48, 49, 0.35);
         transform: translateY(-2px);
     }
 }

@@ -20,4 +20,9 @@ import store from "@/store/index";
     top: 0;
     z-index: 3;
 }
+
+:root[data-theme="dark"] .category_list{
+    background: rgba(17, 24, 39, 0.9);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
 </style>

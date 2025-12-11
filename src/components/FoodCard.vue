@@ -48,15 +48,15 @@ const descriptionText = computed(() =>{
     width: 100%;
     margin-bottom: 10px;
     padding: 15px 15px 20px;
-    border-bottom: 2px solid #F7F7F7;
-    box-shadow: 0 4px 0px -2px #F7F7F7;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
     border-radius: 18px;
-    background: #fff;
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-fast);
+    background: var(--color-surface);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
     &:hover {
         transform: translateY(-6px);
-        box-shadow: var(--shadow-soft);
-        border-color: rgba(0,0,0,0.04);
+        box-shadow: var(--shadow-strong);
+        border-color: var(--color-border);
     }
 }
 
@@ -64,7 +64,7 @@ const descriptionText = computed(() =>{
     min-width: 150px;
     max-width: 150px;
     height: 170px;
-    background: rgb(211, 211, 211);
+    background: var(--color-surface-2);
     margin-right: 10px;
     overflow: hidden;
     border-radius: 20px;
@@ -88,6 +88,7 @@ const descriptionText = computed(() =>{
 
     .title {
         font-size: 18px;
+        color: var(--color-text);
     }
 
     .description {
@@ -95,6 +96,7 @@ const descriptionText = computed(() =>{
         max-height: 60px;
         overflow: hidden;
         margin: 15px 0;
+        color: var(--color-muted);
     }
 }
 
@@ -111,8 +113,9 @@ const descriptionText = computed(() =>{
         font-weight: 700;
         border-radius: 22.5px;
         padding: 0px 20px;
-        box-shadow: 0px 4px 10px rgba(252, 213, 97, 0.5);
-        background: rgb(252, 213, 97);
+        box-shadow: 0px 6px 14px rgba(238, 82, 83, 0.35);
+        background: var(--color-accent);
+        color: #fff;
         transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 }
