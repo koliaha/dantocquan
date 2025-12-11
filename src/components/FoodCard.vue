@@ -5,7 +5,7 @@
         </div>
         <div class="card-item-content">
             <h2 class="title">{{ titleName }}</h2>
-            <p class="description">{{ truncate(data.description) }}</p>
+            <p class="description">{{ truncate(descriptionText) }}</p>
             <div class="item-content-footer">
                 <router-link :to="`/food/${data.id}`" class="item-content-link">
                     <span>{{ t('common.go') }}</span> 
@@ -16,37 +16,30 @@
         </div>
     </div>
 </template>
-<script>
+<script setup>
+/* global defineProps */
 import { ref,computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-export default {
-    props: {
-        data: {
-            type: Object,
-            default: () => { }
-        },
+
+const props = defineProps({
+    data: {
+        type: Object,
+        default: () => ({})
     },
-    setup(props) {
-        const descrip_length = ref(50)
-        const truncate = (str) => {
-            return (str.length > descrip_length.value) ? str.slice(0, descrip_length.value - 1) + '...' : str;
-        }
-        
-        const imageUrlAlt = (event) => {
-            event.target.src = require('@/assets/dantoc.jpg')
-        }
-        const { t, locale } = useI18n({ useScope: 'global' })
-        const titleName = computed(() =>{
-            if(locale.value == 'vn'){
-                return props.data.vn
-            }
-           return props.data.name
-        } )
-        return {
-            truncate, imageUrlAlt,titleName, t
-        }
-    }
+})
+
+const descrip_length = ref(50)
+const truncate = (str) => {
+    return (str.length > descrip_length.value) ? str.slice(0, descrip_length.value - 1) + '...' : str;
 }
+
+const { t, locale } = useI18n({ useScope: 'global' })
+const titleName = computed(() =>{
+    return props.data?.name_i18n?.[locale.value] || props.data?.name_i18n?.ru || props.data?.name || ''
+} )
+const descriptionText = computed(() =>{
+    return props.data?.description_i18n?.[locale.value] || props.data?.description_i18n?.ru || props.data?.description || ''
+} )
 </script>
 <style lang="scss">
 .card-item {

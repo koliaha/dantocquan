@@ -6,40 +6,32 @@
         </div>
         <div class="card-item-page-content">
             <h2 class="title">{{ titleName }}</h2>
-            <p class="description">{{ data.description }}</p>
+            <p class="description">{{ descriptionText }}</p>
             <div class="item-content-footer">
                 <span class="price">{{ data.price }} ₽</span>
             </div>
         </div>
     </div>
 </template>
-<script>
+<script setup>
+/* global defineProps */
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-export default {
-    props: {
-        data: {
-            type: Object,
-            default: () => { }
-        },
-    },
-    setup(props) {
 
-        const imageUrlAlt = (event) => {
-            event.target.src = require('@/assets/dantoc.jpg')
-        }
-        const { locale } = useI18n({ useScope: 'global' })
-        const titleName = computed(() => {
-            if (locale.value == 'vn') {
-                return props.data.vn
-            }
-            return props.data.name
-        })
-        return {
-            imageUrlAlt, titleName
-        }
-    }
-}
+const props = defineProps({
+    data: {
+        type: Object,
+        default: () => ({})
+    },
+})
+
+const { locale } = useI18n({ useScope: 'global' })
+const titleName = computed(() => {
+    return props.data?.name_i18n?.[locale.value] || props.data?.name_i18n?.ru || props.data?.name || ''
+})
+const descriptionText = computed(() =>{
+    return props.data?.description_i18n?.[locale.value] || props.data?.description_i18n?.ru || props.data?.description || ''
+})
 </script>
 <style lang="scss">
 .card-item-page {

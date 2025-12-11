@@ -5,24 +5,18 @@
         <button @click="setLang('zh')" :class="['lang-button', { active: isActive('zh') }]">中文</button>
     </div>
 </template>
-<script>
-
+<script setup>
 import { useI18n } from 'vue-i18n'
 
-export default {
-    setup() {
-        const { t, locale } = useI18n({ useScope: 'global' })
-        const setLang = (lang) =>{
-            locale.value = lang;
-            if (typeof localStorage !== 'undefined') {
-                localStorage.setItem('lang', lang)
-            }
-        }
-        const isActive = (lang) =>{
-            return locale.value === lang
-        }
-        return { t,setLang, isActive } // return render context that included `t`
+const { locale } = useI18n({ useScope: 'global' })
+const setLang = (lang) =>{
+    locale.value = lang;
+    if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('lang', lang)
     }
+}
+const isActive = (lang) =>{
+    return locale.value === lang
 }
 </script>
 <style lang="scss">
