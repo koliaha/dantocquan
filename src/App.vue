@@ -1,11 +1,15 @@
 <template>
   <div class="mainpage">
+    <div class="lang-switch-wrapper">
+      <LocalizionBtn />
+    </div>
     <MainPage />
     <router-view />
   </div>
 </template>
 <script setup>
 import MainPage from '@/components/MainPage.vue'
+import LocalizionBtn from '@/components/LocalizionBtn.vue'
 </script>
 <style lang="scss">
 #app {
@@ -61,6 +65,12 @@ a {
         margin: 0px 0px 0px auto;
     }
 
+}
+.lang-switch-wrapper{
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
 }
 .loader {
     position: absolute;

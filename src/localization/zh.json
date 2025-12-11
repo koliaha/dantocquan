@@ -1,0 +1,25 @@
+{
+  "message": {
+    "hello": "中文"
+  },
+  "common": {
+    "go": "查看",
+    "menu": "菜单"
+  },
+  "categories": {
+    "all": "全部",
+    "pho_bun": "汤面",
+    "xao": "炒锅",
+    "bun": "米粉",
+    "nom": "沙拉",
+    "com": "米饭",
+    "do_an_nhe": "小吃",
+    "do_ngot": "甜品",
+    "cafe_tra": "咖啡和茶",
+    "sinh_to": "冰沙",
+    "lon_chai": "苏打",
+    "combo_lunch": "套餐午餐",
+    "dtq": "特色"
+  }
+}
+

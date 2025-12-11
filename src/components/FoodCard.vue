@@ -8,7 +8,7 @@
             <p class="description">{{ truncate(data.description) }}</p>
             <div class="item-content-footer">
                 <router-link :to="`/food/${data.id}`" class="item-content-link">
-                    <span>Перейти</span> 
+                    <span>{{ t('common.go') }}</span> 
                     <img src="@/assets/arrow_black.svg" alt="arrow_left">  
                 </router-link>
                 <span class="price">{{ data.price }} ₽</span>
@@ -18,7 +18,7 @@
 </template>
 <script>
 import { ref,computed } from 'vue'
-import i18n from '@/localization/i18n'
+import { useI18n } from 'vue-i18n'
 export default {
     props: {
         data: {
@@ -35,14 +35,15 @@ export default {
         const imageUrlAlt = (event) => {
             event.target.src = require('@/assets/dantoc.jpg')
         }
+        const { t, locale } = useI18n({ useScope: 'global' })
         const titleName = computed(() =>{
-            if(i18n.global.locale.value == 'vn'){
+            if(locale.value == 'vn'){
                 return props.data.vn
             }
            return props.data.name
         } )
         return {
-            truncate, imageUrlAlt,titleName
+            truncate, imageUrlAlt,titleName, t
         }
     }
 }

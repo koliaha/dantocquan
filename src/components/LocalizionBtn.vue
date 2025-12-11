@@ -1,24 +1,27 @@
 <template>
     <div class="lang-switch">
-        <!-- :class="{ active: isActive(RU) }"  -->
-        <button @click="setLang('ru')" class="lang-button">RU</button>
-        <button @click="setLang('vn')" class="lang-button">VN</button>
-        <button @click="setLang('en')" class="lang-button">ENG</button>
+        <button @click="setLang('ru')" :class="['lang-button', { active: isActive('ru') }]">RU</button>
+        <button @click="setLang('en')" :class="['lang-button', { active: isActive('en') }]">EN</button>
+        <button @click="setLang('zh')" :class="['lang-button', { active: isActive('zh') }]">中文</button>
     </div>
 </template>
 <script>
 
-// import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import i18n from '@/localization/i18n'
 
 export default {
     setup() {
-        const { t } = useI18n() // call `useI18n`, and spread `t` from  `useI18n` returning
+        const { t, locale } = useI18n({ useScope: 'global' })
         const setLang = (lang) =>{
-            i18n.global.locale.value = lang;
+            locale.value = lang;
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem('lang', lang)
+            }
         }
-        return { t,setLang } // return render context that included `t`
+        const isActive = (lang) =>{
+            return locale.value === lang
+        }
+        return { t,setLang, isActive } // return render context that included `t`
     }
 }
 </script>
@@ -37,7 +40,11 @@ export default {
             padding: 5px 10px;
             font-size: 18px;
             line-height: 20px;
-
+            transition: all .2s ease;
+            &.active{
+                background: white;
+                color: #ee5253;
+            }
         }
     }
 </style>

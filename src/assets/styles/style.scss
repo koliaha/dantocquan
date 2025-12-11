@@ -1,0 +1,13 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #2c3e50;
+  --color-accent: #ee5253;
+  --color-surface: #f7f7f7;
+}
+
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+

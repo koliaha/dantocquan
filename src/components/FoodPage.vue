@@ -15,7 +15,7 @@
 </template>
 <script>
 import { computed } from 'vue'
-import i18n from '@/localization/i18n'
+import { useI18n } from 'vue-i18n'
 export default {
     props: {
         data: {
@@ -28,8 +28,9 @@ export default {
         const imageUrlAlt = (event) => {
             event.target.src = require('@/assets/dantoc.jpg')
         }
+        const { locale } = useI18n({ useScope: 'global' })
         const titleName = computed(() => {
-            if (i18n.global.locale.value == 'vn') {
+            if (locale.value == 'vn') {
                 return props.data.vn
             }
             return props.data.name

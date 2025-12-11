@@ -1,9 +1,10 @@
 <template>
-    <div class="category_item" :class="{ 'isActive': data.id ==  store.getters.getCategory}" @click="setCategory">{{ data.name }}</div>
+    <div class="category_item" :class="{ 'isActive': data.id ==  store.getters.getCategory}" @click="setCategory">{{ label }}</div>
 </template>
 <script>
 import store from "@/store/index";
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from "vue-i18n";
 export default {
     props: {
         data: {
@@ -13,6 +14,8 @@ export default {
     },
     setup(props) {
         const isActive = ref(false)
+        const { t } = useI18n({ useScope: 'global' })
+        const label = computed(() => t(props.data.labelKey))
         const setCategory = () => {
             isActive.value = !isActive.value
             if (isActive.value) {
@@ -22,7 +25,7 @@ export default {
                 store.commit('SET_CATEGORY')
             }
         }
-        return { setCategory, isActive,store }
+        return { setCategory, isActive,store,label }
     }
 }
 

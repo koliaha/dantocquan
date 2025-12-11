@@ -1,5 +1,24 @@
 {
   "message": {
     "hello": "English"
+  },
+  "common": {
+    "go": "Details",
+    "menu": "Menu"
+  },
+  "categories": {
+    "all": "All",
+    "pho_bun": "Soups",
+    "xao": "Wok",
+    "bun": "Noodles",
+    "nom": "Salad",
+    "com": "Rice",
+    "do_an_nhe": "Snacks",
+    "do_ngot": "Dessert",
+    "cafe_tra": "Coffee & Tea",
+    "sinh_to": "Smoothie",
+    "lon_chai": "Soda",
+    "combo_lunch": "Combo Lunch",
+    "dtq": "Special"
   }
 }

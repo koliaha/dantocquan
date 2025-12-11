@@ -1,64 +1,12 @@
 import { createStore } from "vuex";
 import itemData from "@/assets/data/items.json";
+import categories from "@/config/categories";
 export default createStore({
   state: {
     itemList: [],
     itemFilterList: [],
     category: 'all',
-    categoryList: [
-      {
-        id: "all",
-        name: "Все",
-      },
-      {
-        id: "pho_bun",
-        name: "Супы",
-      },
-      {
-        id: "xao",
-        name: "Вок",
-      },
-      {
-        id: "bun",
-        name: "Лапша",
-      },
-      {
-        id: "nom",
-        name: "Салат",
-      },
-      {
-        id: "com",
-        name: "Рис",
-      },
-      {
-        id: "do_an_nhe",
-        name: "Закуски",
-      },
-      {
-        id: "do_ngot",
-        name: "Сладкое",
-      },
-      {
-        id: "cafe_tra",
-        name: "Кафе и Чай",
-      },
-      {
-        id: "sinh_to",
-        name: "Смуши шейк",
-      },
-      {
-        id: "lon_chai",
-        name: "Газировка",
-      },
-      {
-        id: "combo_lunch",
-        name: "Комбо Обед",
-      },
-      {
-        id: "dtq",
-        name: "Особые",
-      },
-    ],
+    categoryList: categories,
   },
   getters: {
     getItemList(state) {
