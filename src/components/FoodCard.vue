@@ -50,6 +50,14 @@ const descriptionText = computed(() =>{
     padding: 15px 15px 20px;
     border-bottom: 2px solid #F7F7F7;
     box-shadow: 0 4px 0px -2px #F7F7F7;
+    border-radius: 18px;
+    background: #fff;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-fast);
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-soft);
+        border-color: rgba(0,0,0,0.04);
+    }
 }
 
 .card-item-image {
@@ -66,6 +74,10 @@ const descriptionText = computed(() =>{
 
     img {
         height: 100%;
+        transition: transform var(--transition-normal), filter var(--transition-normal);
+    }
+    .card-item:hover & img {
+        transform: scale(1.05);
     }
 }
 
@@ -101,14 +113,24 @@ const descriptionText = computed(() =>{
         padding: 0px 20px;
         box-shadow: 0px 4px 10px rgba(252, 213, 97, 0.5);
         background: rgb(252, 213, 97);
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 }
 .item-content-link{
     display: flex;
     align-items: center;
+    transition: color var(--transition-fast);
     img{
         max-width: 10px;
         margin-left: 10px;
+        transition: transform var(--transition-fast);
     }
+    &:hover img{
+        transform: translateX(4px);
+    }
+}
+.card-item:hover .price{
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(252, 213, 97, 0.6);
 }
 </style>

@@ -3,6 +3,12 @@
   --color-text: #2c3e50;
   --color-accent: #ee5253;
   --color-surface: #f7f7f7;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 16px 32px rgba(0, 0, 0, 0.14);
+  --radius-m: 16px;
+  --radius-l: 24px;
+  --transition-fast: 160ms ease;
+  --transition-normal: 240ms ease;
 }
 
 body {
@@ -30,6 +36,10 @@ a {
   }
   &:visited {
     color: inherit;
+  }
+  transition: color var(--transition-fast);
+  &:hover {
+    color: var(--color-accent);
   }
 }
 
@@ -74,6 +84,35 @@ a {
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+button {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+.soft-surface {
+  background: #fff;
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-soft);
+}
+
+.fade-in {
+  animation: fadeInUp 320ms ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 ::-webkit-scrollbar {

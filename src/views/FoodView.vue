@@ -42,9 +42,18 @@ const dataItem = computed(() => {
     margin: 10px 0  40px;
     display: flex;
     align-items: center;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    &:hover{
+        color: var(--color-accent);
+        transform: translateX(-2px);
+    }
     img{
         margin-right: 10px;
         max-width: 20px;
+        transition: transform var(--transition-fast);
+    }
+    &:hover img{
+        transform: translateX(-4px);
     }
 }
 </style>

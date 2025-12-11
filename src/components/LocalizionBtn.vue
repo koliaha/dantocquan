@@ -34,10 +34,16 @@ const isActive = (lang) =>{
             padding: 5px 10px;
             font-size: 18px;
             line-height: 20px;
-            transition: all .2s ease;
+            transition: all var(--transition-fast);
+            box-shadow: 0 8px 18px rgba(238, 82, 83, 0.18);
             &.active{
                 background: white;
                 color: #ee5253;
+                box-shadow: 0 10px 24px rgba(238, 82, 83, 0.22);
+            }
+            &:hover{
+                transform: translateY(-2px);
+                box-shadow: 0 10px 24px rgba(238, 82, 83, 0.28);
             }
         }
     }

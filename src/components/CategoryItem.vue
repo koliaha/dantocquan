@@ -31,18 +31,22 @@ const setCategory = () => {
     background: #00b894;
     color: white;
     font-weight: bold;
-    padding: 2px 6px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    border-radius: 10px;
+    padding: 6px 10px;
+    margin-left: 6px;
+    margin-bottom: 6px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: 0.5s opacity;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
     user-select: none;
     &:hover{
-        opacity: 0.7;
+        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-soft);
     }
     &.isActive {
         background: #d63031;
+        box-shadow: 0 10px 24px rgba(214, 48, 49, 0.3);
+        transform: translateY(-2px);
     }
 }
 </style>

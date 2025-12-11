@@ -25,8 +25,9 @@
     transform: translateX(-50%);
     max-width: 100px;
     width: 100%;
-    // border: 2px solid white;
     padding: 10px;
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25));
+    animation: fadeInUp 420ms ease forwards;
     img{
         width: 100%;
     }

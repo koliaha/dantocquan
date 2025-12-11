@@ -11,9 +11,13 @@ import store from "@/store/index";
 .category_list {
     display: flex;
     flex-wrap: wrap;
-    padding:  10px;
-    background: rgb(255, 255, 255);
+    gap: 4px 6px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     position: sticky;
     top: 0;
+    z-index: 3;
 }
 </style>

@@ -37,6 +37,15 @@ const descriptionText = computed(() =>{
 .card-item-page {
     max-width: 100%;
     width: 100%;
+    background: #fff;
+    border-radius: var(--radius-l);
+    padding: 14px;
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+    &:hover{
+        box-shadow: var(--shadow-strong);
+        transform: translateY(-4px);
+    }
 }
 
 .card-item-page-image {
